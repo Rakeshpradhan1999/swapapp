@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-
 import { Timer, Form } from "../../components";
 import moment from "moment";
-
-import "rc-slider/assets/index.css";
 import "./style.css";
 
 const Index = ({ account, mint, totalSupply, displayPrice }) => {
