@@ -6,14 +6,13 @@ toast.configure();
 const Home = ({ account, mint, totalSupply, displayPrice, loadWeb3 }) => {
   return (
     <div>
-      <Layout account={account} loadWeb3={loadWeb3}>
-        <HeroSection
-          account={account}
-          mint={mint}
-          totalSupply={totalSupply}
-          displayPrice={displayPrice}
-        />
-      </Layout>
+      <Layout account={account} loadWeb3={loadWeb3}></Layout>
+      <HeroSection
+        account={account}
+        mint={mint}
+        totalSupply={totalSupply}
+        displayPrice={displayPrice}
+      />
     </div>
   );
 };

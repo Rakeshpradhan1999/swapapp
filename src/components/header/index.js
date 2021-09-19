@@ -13,7 +13,7 @@ const Index = ({ account, loadWeb3 }) => {
 
   return (
     <header className=" bg-primary  text-white shadow-md ">
-      <nav className=" container flex items-center justify-between relative py-3">
+      <nav className=" container flex items-center justify-between relative py-2.5">
         <div className="w-14 flex-1 md:flex-none">
           <img src={Logo} alt="logo" />
         </div>
@@ -33,7 +33,7 @@ const Index = ({ account, loadWeb3 }) => {
 
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="transition-all duration-500 bg-secondary bg-opacity-25 h-8 w-8 md:w-9 md:h-9 flex justify-center items-center rounded-full"
+          className="transition-all duration-500 bg-secondary bg-opacity-25 h-8 w-8 md:w-10 md:h-10 flex justify-center items-center rounded-full"
         >
           <img
             src={theme === "dark" ? Moon : Sun}

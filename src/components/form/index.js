@@ -7,7 +7,7 @@ import Eth from "../../assets/images/ETH.png";
 const Index = () => {
   return (
     <div
-      className="w-full  mt-10 dark:text-gray-50 dark:bg-dark rounded-xl"
+      className="w-full mt-10 dark:text-gray-50 dark:bg-dark rounded-xl"
       style={{ boxShadow: "0px 0px 6px 0px rgba(0,0,0,0.16)" }}
     >
       <h6

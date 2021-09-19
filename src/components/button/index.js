@@ -11,7 +11,7 @@ const Index = ({
   return (
     <>
       <button
-        className={`capitalize py-2 px-8 text-sm font-medium  rounded-full 
+        className={`capitalize py-2.5 px-8 text-sm font-medium  rounded-full 
         ${responsive ? "hidden md:block" : null}
         ${
           secondary
