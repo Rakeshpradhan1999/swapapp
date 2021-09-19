@@ -28,6 +28,7 @@ module.exports = {
       dark: "#202123",
       darkBorder: "#232323",
       mainDark: "#1B1C1E",
+      transparent: "transparent",
     }),
   },
   variants: {
