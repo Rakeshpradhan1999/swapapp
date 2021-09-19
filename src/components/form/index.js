@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../button";
 import "./style.css";
-import Mamba from "../../assets/images/Mamba.png";
+
 import Eth from "../../assets/images/ETH.png";
 import Bnb from "../../assets/images/logo.png";
 
