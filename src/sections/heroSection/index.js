@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Timer, Form } from "../../components";
+import { Timer, Form, Progress } from "../../components";
 import moment from "moment";
 import "./style.css";
 
@@ -27,7 +27,7 @@ const Index = ({ account, mint, totalSupply, displayPrice }) => {
   });
 
   return (
-    <section className=" pt-11 text-dark">
+    <section className="py-6 lg:pb-2 text-dark">
       <div className="container">
         <div className="max-w-xl w-full mx-auto">
           <Timer
@@ -36,6 +36,7 @@ const Index = ({ account, mint, totalSupply, displayPrice }) => {
             minutes={minutes}
             seconds={seconds}
           />
+          <Progress />
           <Form />
         </div>
       </div>

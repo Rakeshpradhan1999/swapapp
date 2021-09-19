@@ -15,7 +15,7 @@ const Index = ({
         ${responsive ? "hidden md:block" : null}
         ${
           secondary
-            ? "bg-primary text-white w-full py-3"
+            ? "bg-primary text-white w-full py-3.5"
             : "bg-secondary text-primary"
         }
         

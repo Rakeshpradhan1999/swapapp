@@ -15,7 +15,7 @@ const Index = ({ account, loadWeb3 }) => {
     <header className=" bg-primary  text-white shadow-md ">
       <nav className=" container flex items-center justify-between relative py-2.5">
         <div className="w-14 flex-1 md:flex-none">
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" className="w-12  md:w-14" />
         </div>
         <div className="hidden md:block flex-1">
           <ul className="flex list-none font-medium ml-8 ">
