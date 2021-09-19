@@ -15,7 +15,7 @@ const Index = ({ value = 20, days = 20 }) => {
         ></div>
       </div>
       <div className="flex justify-between items-center">
-        <span>softcop in {days}days</span>
+        <span>softcop in {days} days</span>
         <span>Hardcop</span>
       </div>
     </div>
