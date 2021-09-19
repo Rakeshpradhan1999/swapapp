@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import "./style.css";
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/LOGOFINAL.png";
 import Sun from "../../assets/images/Sun.svg";
 import Moon from "../../assets/images/Moon.svg";
 import Button from "../button";

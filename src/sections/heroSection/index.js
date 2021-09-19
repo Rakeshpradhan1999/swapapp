@@ -27,7 +27,7 @@ const Index = ({ account, mint, totalSupply, displayPrice }) => {
   });
 
   return (
-    <section className="py-6 lg:pb-2 text-dark">
+    <section className="pt-6 pb-2 text-dark">
       <div className="container">
         <div className="max-w-xl w-full mx-auto">
           <Timer

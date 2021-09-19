@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "../button";
 import "./style.css";
+import Mamba from "../../assets/images/Mamba.png";
 
-import Eth from "../../assets/images/ETH.png";
 import Bnb from "../../assets/images/logo.png";
 
 const Index = () => {
@@ -20,9 +20,9 @@ const Index = () => {
           <span className="block text-center text-base my-1">
             <i className="fas fa-arrow-down"></i>
           </span>
-          <Field label1="Receive" icon={Bnb} name="BNB" />
+          <Field label1="Receive" icon={Mamba} name="MAMBA" />
           <span className="block text-xs mt-2 text-gray-500 text-center">
-            1 ETH = 0.1 BNB
+            1 BNB = 0.1 MAMBA
           </span>
           <div className="mt-8">
             <Button secondary={true}>Connect Wallet</Button>
@@ -37,8 +37,8 @@ export default Index;
 
 const Field = ({
   label1 = "Pay",
-  icon = Eth,
-  name = "Eth",
+  icon = Bnb,
+  name = "BNB",
   balance = "00",
 }) => (
   <div className="">
@@ -52,6 +52,7 @@ const Field = ({
       <input
         type="text"
         className="h-full w-full rounded-xl dark:bg-mainDark bg-transparent border-2 border-gray-400"
+        placeholder="0"
       />
       <div className="currency">
         <img src={icon} alt="" className="w-5 mr-2" />
