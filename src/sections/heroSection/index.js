@@ -3,7 +3,14 @@ import { Timer, Form, Progress } from "../../components";
 import moment from "moment";
 import "./style.css";
 
-const Index = ({ account, mint, totalSupply, displayPrice }) => {
+const Index = ({
+  account,
+  mint,
+  totalSupply,
+  displayPrice,
+  tokenSold,
+  icoPrice,
+}) => {
   const difference = +new moment("2021-10-17 00:00:00").utc() - +new Date();
 
   const [days, setDays] = useState(0);
@@ -36,8 +43,8 @@ const Index = ({ account, mint, totalSupply, displayPrice }) => {
             minutes={minutes}
             seconds={seconds}
           />
-          <Progress />
-          <Form />
+          <Progress totalSupply={totalSupply} tokenSold={tokenSold} />
+          <Form icoPrice={icoPrice} account={account} mint={mint} />
         </div>
       </div>
     </section>

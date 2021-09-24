@@ -11,10 +11,10 @@ function App() {
   const [account, setAccount] = useState(null);
   const [contract, setContract] = useState(null);
   const [totalSupply, setTotalSupply] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [displayPrice, setDisplayPrice] = useState(0);
+  //const [finalPrice, setFinalPrice] = useState(0);
+  const [ICOPrice, setICOPrice] = useState(0);
+  const [tokenSold, setTokenSold] = useState(0);
 
-  const [lessMintAmountAlert, setLessMintAmountAlert] = useState(false);
   const [accessAccountDenied, setAccessAccountDenied] = useState(false);
   const [installEthereum, setInstallEthereum] = useState(false);
   const [nftMinted, setNftMinted] = useState(false);
@@ -45,11 +45,6 @@ function App() {
         } else console.error(error);
       }
     } else {
-      // swal(
-      //   "",
-      //   "Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!",
-      //   "error"
-      // );
       setInstallEthereum(true);
     }
   }
@@ -68,26 +63,23 @@ function App() {
     // you are connected to main net
     // Please connect to main net
 
-    if (chainId === 4) {
-      toast(`you are connected to main net`, {
+    if (chainId === 97) {
+      toast(`You are connected to main net`, {
         type: "success",
         position: toast.POSITION.BOTTOM_CENTER,
       });
-      const totalSupply = await contract.methods.totalSupply().call();
+
+      const totalSupply = await contract.methods.totalICOSupply().call();
       setTotalSupply(totalSupply);
 
-      const price = await contract.methods.price().call();
-      setPrice(price);
-      const displayPrice = window.web3.utils.fromWei(price, "ether");
-      setDisplayPrice(displayPrice);
+      const ICOPrice = await contract.methods.getICOPrice().call();
+      console.log(ICOPrice);
+      const convertedICOPrice = Web3.utils.fromWei(ICOPrice);
+      setICOPrice(convertedICOPrice);
+      // console.log("convertedICOPrice:", convertedICOPrice);
 
-      //event will be fired by the smart contract when a new AngryBunny is minted
-      contract.events
-        .AngryBunniesMinted()
-        .on("data", async function (result) {
-          setTotalSupply(result.returnValues[0]);
-        })
-        .on("error", console.error);
+      const tokenSold = await contract.methods.tokenSold().call();
+      setTokenSold(tokenSold);
     } else {
       toast("Please connect to main net", {
         type: "error",
@@ -122,16 +114,15 @@ function App() {
   };
 
   async function mint(mintCount) {
+    alert("hello");
     if (contract) {
-      if (chainId === 4) {
+      if (chainId === 97) {
         if (mintCount === 0) {
-          // swal("Atleast 1 AngryBunny should be minted", "", "info");
-          setLessMintAmountAlert(true);
         } else {
           setConfirmTransaction(true);
-          const finalPrice = Number(price) * mintCount;
+          const finalPrice = 1000 * ICOPrice;
           contract.methods
-            .mintAngryBunnies(mintCount)
+            .buy(mintCount)
             .send({ from: account, value: finalPrice })
             .on("transactionHash", function () {
               // swal({
@@ -189,14 +180,9 @@ function App() {
         account={account}
         mint={mint}
         totalSupply={totalSupply}
-        displayPrice={displayPrice}
         loadWeb3={loadWeb3}
-      />
-      <InformationModal
-        open={lessMintAmountAlert}
-        onClose={setLessMintAmountAlert}
-        title="Oops"
-        text="Atleast 1 Pixel Zombie should be minted"
+        tokenSold={tokenSold}
+        icoPrice={ICOPrice}
       />
       <InformationModal
         open={accessAccountDenied}
